@@ -30,7 +30,7 @@ export default class SingleStory extends React.Component {
   render () {
     const { title, id, content, author, comments } = this.state.fakeStory
 
-    console.log(this.state)
+    console.log(this.props.match.params.storyId, 'is the story id')
 
     return (
       <div id='single-story' className='column'>
@@ -40,7 +40,7 @@ export default class SingleStory extends React.Component {
         <div id='comments'>
           {comments.map(comment => {
             return (
-              <div className='comment row'>
+              <div key={id} className='comment row'>
                 <img src={comment.author.imageUrl} />
                 <div className='column'>
                   <a>
