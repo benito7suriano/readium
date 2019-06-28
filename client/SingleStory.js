@@ -1,36 +1,26 @@
 import React from 'react'
-
-const fakeStory = {
-  title: 'Ships',
-  id: 2,
-  content: 'A ship in port is safe,\nbut that\'s not what ships are built for',
-  author: {
-    id: 1,
-    name: 'Grace Hopper'
-  },
-  comments: [
-    {
-      id: 4,
-      content: 'I like ships!',
-      author: {
-        id: 2,
-        name: 'Alan Turing',
-        imageUrl: 'default-author.png'
-      }
-    }
-  ]
-}
+import axios from 'axios'
 
 export default class SingleStory extends React.Component {
   constructor() {
     super()
-    this.state = { fakeStory }
+    this.state = {
+      story: {
+        content: '',
+        comments: []
+      }
+    }
+  }
+
+  async componentDidMount() {
+    const storyId = this.props.match.params.storyId
+    const res = await axios.get(`/api/stories/${storyId}`)
+
+    this.setState({ story: res.data })
   }
 
   render () {
-    const { title, id, content, author, comments } = this.state.fakeStory
-
-    console.log(this.props.match.params.storyId, 'is the story id')
+    const { title, id, content, author, comments } = this.state.story
 
     return (
       <div id='single-story' className='column'>
@@ -38,9 +28,9 @@ export default class SingleStory extends React.Component {
         <p>{content}</p>
         <h3>Responses:</h3>
         <div id='comments'>
-          {comments.map(comment => {
+          {comments.map((comment,idx) => {
             return (
-              <div key={id} className='comment row'>
+              <div key={idx} className='comment row'>
                 <img src={comment.author.imageUrl} />
                 <div className='column'>
                   <a>
