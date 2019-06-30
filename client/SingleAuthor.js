@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Comments from './Comments'
+import Stories from './Stories'
 
 class SingleAuthor extends Component {
   constructor () {
@@ -43,6 +44,7 @@ class SingleAuthor extends Component {
         <hr />
         <div>
           <h4>STORIES</h4>
+          { <Stories stories={stories} />}
           <h4>COMMENTS</h4>
           {<Comments comments={comments} />}
 
