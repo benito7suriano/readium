@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Comments from './Comments'
 
 export default class SingleStory extends React.Component {
   constructor() {
@@ -27,7 +28,8 @@ export default class SingleStory extends React.Component {
         <h1>{title}</h1>
         <p>{content}</p>
         <h3>Responses:</h3>
-        <div id='comments'>
+        {<Comments comments={comments} />}
+        {/* <div id='comments'>
           {comments.map((comment,idx) => {
             return (
               <div key={idx} className='comment row'>
@@ -41,7 +43,7 @@ export default class SingleStory extends React.Component {
               </div>
             )
           })}
-        </div>
+        </div> */}
       </div>
     )
   }

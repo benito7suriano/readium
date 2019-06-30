@@ -22,7 +22,7 @@ export default class Authors extends React.Component {
       <div>
         {
           this.state.authors.map(author => (
-            <Link to={'FILL_ME_IN'} key={author.id}>
+            <Link to={`/authors/${author.id}`} key={author.id}>
               <div className='author row'>
                 <img src={author.imageUrl}/>
                 <p>{author.name}</p>

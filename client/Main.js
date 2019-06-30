@@ -4,7 +4,7 @@ import Stories from './Stories'
 import Authors from './Authors'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import SingleStory from './SingleStory'
-
+import SingleAuthor from './SingleAuthor'
 
 export default class Main extends React.Component {
   render () {
@@ -21,6 +21,7 @@ export default class Main extends React.Component {
           <Route exact path='/stories' component={Stories} />
           <Route exact path='/authors' component={Authors} />
           <Route path='/stories/:storyId' component={SingleStory} />
+          <Route path='/authors/:authorId' component={SingleAuthor} />
         </div>
       </Router>
     )
