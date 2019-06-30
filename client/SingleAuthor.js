@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Route } from 'react-router-dom'
+import { NavLink, Link, Route } from 'react-router-dom'
 import axios from 'axios'
 import Comments from './Comments'
 import Stories from './Stories'
@@ -42,8 +42,8 @@ class SingleAuthor extends Component {
           <img src={author.imageUrl} />
         </div>
         <div id='single-author-nav'>
-          <Link to={`/authors/${author.id}/comments`}>Comments</Link>
-          <Link to={`/authors/${author.id}/stories`}>Stories</Link>
+          <NavLink to={`/authors/${author.id}/comments`} activeClassName='selected'>Comments</NavLink>
+          <NavLink to={`/authors/${author.id}/stories`} activeClassName='selected'>Stories</NavLink>
         </div>
         <hr />
         <div>

@@ -172,6 +172,11 @@ td {
   color: gray;
 }
 
+.selected {
+  color: midnightblue;
+
+}
+
 .story {
   width: 300px;
 }
